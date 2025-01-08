@@ -2,11 +2,11 @@
 
 # Fullstack Express Passkey Example App
 
-This is a sample implementation of
-the [Corbado web-js](https://github.com/corbado/javascript/tree/develop/packages/web-js) package
-and [Corbado Node.js](https://github.com/corbado/corbado-nodejs)
-SDK being integrated into a web
-application built with Express and ejs as a templating engine.
+This is a sample implementation of the [Corbado passkeys-first authentication solution](https://www.corbado.com) using
+Vanillajs and Express with TypeScript. The following packages are being used:
+
+- [Corbado web-js](https://github.com/corbado/javascript/tree/develop/packages/web-js)
+- [Corbado Node.js](https://github.com/corbado/corbado-nodejs)
 
 ## File structure
 
@@ -58,3 +58,9 @@ Finally, you can run the project locally with
 ```bash
 npm run start
 ```
+
+## Passkeys support
+
+- Community for Developer Support: https://bit.ly/passkeys-community
+- Passkeys Debugger: https://www.passkeys-debugger.io/
+- Passkey Subreddit: https://www.reddit.com/r/passkey/
