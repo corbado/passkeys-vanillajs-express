@@ -1,0 +1,26 @@
+<% if (user) { %>
+    <div>
+        <h1>Welcome <span id="name-placeholder"></span> from <%- city %>!</h1>
+        <p>You now have access to everything and can visit the user area:</p>
+        <a class="button" href="/userarea">User area</a>
+    </div>
+    <script>
+        window.corbadoLoadPromise.then(() => {
+            document.getElementById("name-placeholder").innerText = Corbado.user.name;
+        });
+    </script>
+<% } else { %>
+    <div>
+        <h1>Welcome Guest!</h1>
+        <p>This example demonstrates Corbado's passkey-first authentication solution.</p>
+        <p>It covers all relevant aspects like -</p>
+        <ul>
+            <li>Sign-up</li>
+            <li>Login</li>
+            <li>Protecting Routes</li>
+        </ul>
+        <p>It can be used as a starting point for your own application or to learn.</p>
+        <a class="button" href="/signup">Sign up</a>
+        <a class="button" href="/login">Login</a>
+    </div>
+<% } %>

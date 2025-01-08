@@ -1,0 +1,15 @@
+<div>
+    <h1>Signup</h1>
+    <div id="signup-container"></div>
+</div>
+<script>
+    window.corbadoLoadPromise.then(() => {
+        const signupContainer = document.getElementById("signup-container");
+        Corbado.mountAuthUI(signupContainer, {
+            onLoggedIn: () => {
+                window.location.href = "/api/auth/handlelogin";
+            },
+            initialBlock: "signup-init"
+        });
+    });
+</script>

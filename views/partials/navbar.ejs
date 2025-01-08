@@ -1,0 +1,67 @@
+<div>
+    <nav>
+        <a href="/">
+            <img src="/images/logo.svg" alt="Corbado Logo" height="40" width="40" />
+            <p>Corbado Example</p>
+        </a>
+        <ul>
+            <% if (isAuthenticated) { %>
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/userarea">
+                        User area
+                    </a>
+                </li>
+                <li>
+                    <a href="/profile">
+                        Profile
+                    </a>
+                </li>
+            <% } else { %>
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/userarea">
+                        User area
+                    </a>
+                </li>
+                <li>
+                    <a href="/signup">
+                        Sign up
+                    </a>
+                </li>
+                <li>
+                    <a href="/login">
+                        Login
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+        <% if (isAuthenticated) { %>
+            <button class="button">Logout</button>
+        <% } %>
+    </nav>
+    <script>
+        document.querySelectorAll("nav ul li").forEach((li) => {
+            // add the data-selected attribute to the active link
+            const link = li.querySelector("a");
+            if (link.getAttribute("href") === window.location.pathname) {
+                link.setAttribute("data-selected", "true");
+            } else {
+                link.removeAttribute("data-selected");
+            }
+        });
+        document.querySelector("nav button")?.addEventListener("click", async () => {
+            await window.corbadoLoadPromise;
+            await Corbado.logout();
+            window.location.href = "/";
+        });
+    </script>
+</div>

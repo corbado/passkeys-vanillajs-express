@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title || "Corbado express example"; %></title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Corbado web-js -->
+    <link rel="stylesheet" href="https://unpkg.com/@corbado/web-js@2/dist/bundle/index.css" />
+    <script src="https://unpkg.com/@corbado/web-js@2/dist/bundle/index.js"></script>
+    <script>
+        window.corbadoLoadPromise = Corbado.load({
+            projectId: "<%- projectId %>",
+            darkMode: "on",
+            theme: "cbo-custom-styles",
+            customTranslations: JSON.parse(`<%- customTranslations %>`)
+        });
+    </script>
+</head>
+<body>
+<!-- Top Navigation -->
+<%- include('../partials/navbar') %>
+
+<!-- Main Content Area -->
+<main>
+    <section>
+        <%- body; %>
+    </section>
+    <footer>
+        <a href="https://github.com/corbado/example-ts-nextjs.git" target="_blank">
+            <img
+                    src="/images/github-icon.svg"
+                    alt="GitHub icon"
+                    width="24"
+                    height="24"
+            />
+            Github
+        </a>
+        <a href="https://docs.corbado.com/corbado-complete/fullstack-integration/next-js" target="_blank">
+            <img
+                    src="/images/documents-icon.svg"
+                    alt="Documentation icon"
+                    width="24"
+                    height="24"
+            />
+            Documentation
+        </a>
+    </footer>
+</main>
+
+<!-- Footer -->
+<%- include('../partials/footer') %>
+
+<!-- Custom JS -->
+<% if (locals.scripts) { %>
+    <% scripts.forEach(function(script) { %>
+        <script src="<%= script; %>"></script>
+    <% }); %>
+<% } %>
+</body>
+</html>

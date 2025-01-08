@@ -1,0 +1,423 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Space+Grotesk:wght@300..700&display=swap");
+/* CSS reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+}
+
+span {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* CSS reset end */
+
+/* General Theming */
+:root {
+    --font-space-grotesk: "Space Grotesk", serif;
+    --font-inter: "Inter", sans-serif;
+    --text-slate: #94a3b8;
+    --primary: #2c56f6;
+    --secondary: #59acfe;
+    --bg-light: #2c334b;
+    --bg-medium: #171b29ff;
+}
+
+body {
+    background-color: var(--bg-medium);
+    margin: 0 auto;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-space-grotesk);
+    color: white;
+    font-weight: bold;
+}
+
+p,
+li,
+a {
+    font-family: var(--font-inter);
+}
+
+button {
+    font-family: var(--font-space-grotesk);
+    font-weight: bold;
+}
+
+p,
+li,
+a {
+    color: var(--text-slate);
+}
+
+a {
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: white;
+}
+
+.loader {
+    border: 5px solid var(--text-slate);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: rotation 1s linear infinite;
+    width: 2rem;
+    height: 2rem;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+div:has(> nav) {
+    background-color: var(--bg-light);
+}
+
+/* Navigation */
+nav {
+    padding: 0.5rem 1rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+nav p {
+    color: white;
+}
+
+nav ul {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #727a95;
+    border-radius: 8px;
+    width: fit-content;
+    /*max-width: 500px;*/
+    padding: 0.3rem;
+    gap: 0.2rem;
+}
+
+nav ul li {
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+nav ul li:has(a[data-selected="true"]) {
+    background-color: var(--bg-light);
+}
+
+nav ul li:not(:has(a[data-selected="true"])):hover {
+    background-color: #61677c;
+}
+
+nav ul li a {
+    font-family: var(--font-space-grotesk);
+    color: white;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+nav > a:first-child {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-space-grotesk);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav > button:last-child {
+    font-family: var(--font-space-grotesk);
+    background-color: var(--primary);
+    color: white;
+    justify-self: center;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+/* Main */
+
+main section {
+    padding: 1rem;
+    background-color: #0c0c1f;
+    box-shadow: 0 0 14px 0 rgba(44, 86, 246, 0.5);
+    border-radius: 8px;
+    text-align: center;
+}
+
+main h1 {
+    color: var(--secondary);
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+main p {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+main .button,
+main button {
+    display: inline-block;
+    font-family: var(--font-space-grotesk);
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin: 0.4rem 0.2rem;
+}
+
+main .button:disabled,
+main button:disabled {
+    background-color: #1b3494;
+    cursor: not-allowed;
+}
+
+main .button:hover:not([disabled]),
+button:hover:not([type="button"]):not([title]):not(.cb-primary-button):not(
+        [disabled]
+    ) {
+    background-color: var(--secondary);
+}
+
+main ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.2rem 0;
+}
+
+main ul li {
+    color: white;
+    font-family: var(--font-space-grotesk);
+}
+
+main ul li::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 2px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBmaWxsPSJub25lIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZl8zNl83MTUpIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgZmlsbD0iIzIxOEVEMiIvPgo8Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI2IiBmaWxsPSIjMjE4RUQyIi8+CjwvZz4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgZmlsbD0iIzIxOEVEMiIvPgo8Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI2IiBmaWxsPSIjMjE4RUQyIi8+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2ZfMzZfNzE1IiB4PSIwIiB5PSIwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzM2XzcxNSIvPgo8L2ZpbHRlcj4KPC9kZWZzPgo8L3N2Zz4=");
+    background-size: cover;
+    vertical-align: middle;
+}
+
+#secret-box {
+    border: 2px solid var(--text-slate);
+    background: var(--bg-light);
+    margin-top: 1rem;
+    justify-self: center;
+    padding: 0.3rem;
+}
+
+#secret-box h3 {
+    display: inline;
+    color: var(--secondary);
+}
+
+#secret-box p {
+    display: inline;
+    color: white;
+}
+
+#city-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#city-form > input {
+    font-family: var(--font-inter);
+    background-color: var(--bg-light);
+    border: white 2px solid;
+    border-radius: 8px;
+    color: white;
+    padding: 0.2rem 0.5rem;
+}
+
+#identifier-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    border: 1px solid var(--text-slate);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+#identifier-list > div {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-items: start;
+}
+
+#identifier-list > div:not(:last-child) {
+    border-bottom: 1px solid var(--text-slate);
+}
+
+/* Footer */
+footer {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-top: 3rem;
+}
+
+footer > a {
+    display: flex;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+footer > a:hover {
+    background-color: var(--bg-light);
+    color: var(--text-slate);
+}
+
+footer > svg:hover {
+    fill: white;
+}
+
+/* Custom Corbado styles */
+
+.cbo-custom-styles {
+    .cb-passkey-list-title {
+        display: none;
+    }
+
+    .cb-passkey-list-primary-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cb-passkey-list-primary-button:hover {
+        background-color: var(--secondary);
+    }
+
+    .cb-passkey-list-card,
+    .cb-container {
+        background-color: var(--bg-light);
+    }
+
+    .cb-input,
+    .cb-icon-button-with-icon-only,
+    .cb-last-identifier {
+        background-color: var(--bg-medium);
+    }
+}
+
+@media (min-width: 540px) {
+    nav ul li a {
+        padding: 0.5rem 2rem;
+    }
+
+    #identifier-list > div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1150px) {
+    nav {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    }
+
+    nav > a:first-child {
+        justify-self: start;
+    }
+
+    nav > button:last-child {
+        justify-self: end;
+    }
+}

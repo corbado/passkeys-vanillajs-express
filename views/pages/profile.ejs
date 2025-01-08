@@ -1,0 +1,26 @@
+<div>
+    <h1>Profile</h1>
+    <p><strong>Example userID: </strong><%= dbUser.id ;%></p>
+    <p><strong>Corbado userID: </strong><%= user.userId ;%></p>
+    <h2>Your Identifiers</h2>
+    <div id="identifier-list">
+        <% for (identifier of identifiers) { %>
+            <div>
+                <p>
+                    <strong>Type</strong>: <%= identifier.type ;%>
+                </p>
+                <p>
+                    <strong>Value</strong>: <%= identifier.value ;%>
+                </p>
+            </div>
+        <% } %>
+    </div>
+    <h2>Manage your Passkeys</h2>
+    <div id="passkeylist-container"></div>
+</div>
+
+<script>
+    window.corbadoLoadPromise.then(() => {
+        Corbado.mountPasskeyListUI(document.getElementById("passkeylist-container"));
+    });
+</script>

@@ -1,0 +1,41 @@
+{
+    "name": "js-vanillajs-ts-express",
+    "version": "1.0.0",
+    "description": "Express app with TypeScript",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "tsc && node dist/index.js",
+        "prettier:fix": "prettier --write './**/*.{js,html,ts,css}'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@corbado/node-sdk": "^3.0.2",
+        "@corbado/types": "^2.11.2",
+        "compression": "^1.7.5",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.10",
+        "express": "^4.21.1",
+        "express-ejs-layouts": "^2.5.1",
+        "lowdb": "^7.0.1",
+        "morgan": "^1.10.0",
+        "winston": "^3.17.0"
+    },
+    "devDependencies": {
+        "@types/compression": "^1.7.5",
+        "@types/cookie-parser": "^1.4.8",
+        "@types/cors": "^2.8.17",
+        "@types/ejs": "^3.1.5",
+        "@types/express": "^5.0.0",
+        "@types/express-ejs-layouts": "^2.5.4",
+        "@types/morgan": "^1.9.9",
+        "@types/node": "^22.9.3",
+        "prettier": "^3.3.3",
+        "prettier-plugin-embed": "^0.4.15",
+        "typescript": "^5.7.2"
+    }
+}
