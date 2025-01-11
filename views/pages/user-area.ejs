@@ -13,9 +13,9 @@
         });
         revealSecretButton.addEventListener("click", async () => {
             revealSecretButton.setAttribute("disabled", "true");
-            await window.corbadoLoadPromise;
-            revealSecretResult.innerHTML = `<div class="loader"></div>`;
             try {
+                await window.corbadoLoadPromise;
+                revealSecretResult.innerHTML = `<div class="loader"></div>`;
                 const response = await fetch("/api/secret", {
                     headers: {
                         Authorization: `Bearer ${Corbado.sessionToken}`

@@ -7,9 +7,7 @@ import db, { User } from "./db.js";
  * @returns The user object or undefined if not found.
  */
 export function getUser(corbadoUserId?: string): User | undefined {
-    return db.data.users.find(
-        (user) => user.corbado_user_id === corbadoUserId,
-    );
+    return db.data.users.find((user) => user.corbado_user_id === corbadoUserId);
 }
 
 /**

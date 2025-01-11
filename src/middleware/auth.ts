@@ -22,15 +22,13 @@ export async function authenticateMiddleware(
     try {
         // Attempt to get authenticated user from cookie
         let user = await getAuthenticatedUserFromCookie(req);
+        // Else, try to get him from authorization header
         user ??= await getAuthenticatedUserFromAuthorizationHeader(req);
-
         // Attach user to request object
         req.user = user;
-
         next();
     } catch (error) {
         logger.error("Authentication middleware error", error);
-
         res.status(500);
     }
 }
