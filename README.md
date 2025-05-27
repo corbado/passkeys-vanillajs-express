@@ -66,3 +66,13 @@ npm run start
 - Community for Developer Support: https://bit.ly/passkeys-community
 - Passkeys Debugger: https://www.passkeys-debugger.io/
 - Passkey Subreddit: https://www.reddit.com/r/passkey/
+
+## Telemetry
+
+This example application uses telemetry. By gathering telemetry data, we gain a more comprehensive understanding of how our SDKs, components, and example applications are utilized across various scenarios. This information is crucial in helping us prioritize features that are beneficial and impactful for the majority of our users. Read our [official documentation](https://docs.corbado.com/corbado-complete/other/telemetry) for more details.
+
+To disable telemetry, add the following line to your `.env` file:
+
+```sh
+CORBADO_TELEMETRY_DISABLED=true
+```

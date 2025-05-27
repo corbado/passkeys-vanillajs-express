@@ -16,7 +16,7 @@
 
     <!-- Corbado web-js -->
     <link rel="stylesheet" href="https://unpkg.com/@corbado/web-js@3/dist/bundle/index.css" />
-    <script src="https://unpkg.com/@corbado/web-js@3.1.0/dist/bundle/index.js"></script>
+    <script src="https://unpkg.com/@corbado/web-js@3.1.1/dist/bundle/index.js"></script>
     <script src="https://unpkg.com/@corbado/shared-util@1/dist/bundle/index.js"></script>
 
     <script>
@@ -24,20 +24,24 @@
             projectId: "<%- projectId %>",
             darkMode: "on",
             theme: "cbo-custom-styles",
-            customTranslations: JSON.parse(`<%- customTranslations %>`)
-        });
+            customTranslations: JSON.parse(`<%- customTranslations %>`),
+        },
+        <%= corbadoTelemetryDisabled %> !== true);
     </script>
 
     <script>
-        CorbadoSharedUtil.sendEvent({
-            type: CorbadoSharedUtil.TelemetryEventType.EXAMPLE_APPLICATION_OPENED,
-            payload: {
-                exampleName: 'corbado/js-vanillajs-ts-express',
-            },
-            sdkVersion: '3.1.0',
-            sdkName: 'Javascript SDK',
-            identifier: "<%- projectId %>",
-        });
+        if (<%= corbadoTelemetryDisabled %> !== true) {
+            CorbadoSharedUtil.sendEvent({
+                type: CorbadoSharedUtil.TelemetryEventType.EXAMPLE_APPLICATION_OPENED,
+                payload: {
+                    exampleName: 'corbado/passkeys-vanillajs-express',
+                },
+                sdkVersion: '3.1.0',
+                sdkName: 'React SDK',
+                identifier: "<%- projectId %>",
+            });
+        }
+
     </script>
 </head>
 

@@ -7,6 +7,9 @@ const customTranslations = JSON.stringify({
 
 const projectId = process.env.CORBADO_PROJECT_ID;
 
+const corbadoTelemetryDisabled =
+    process.env.CORBADO_TELEMETRY_DISABLED ?? false;
+
 export function renderWithLayout(
     req: Request,
     res: Response,
@@ -16,7 +19,18 @@ export function renderWithLayout(
 ) {
     const isAuthenticated = !!req.user;
     const finalOptions = options
-        ? { ...options, customTranslations, projectId, isAuthenticated }
-        : { customTranslations, projectId, isAuthenticated };
+        ? {
+              ...options,
+              customTranslations,
+              projectId,
+              isAuthenticated,
+              corbadoTelemetryDisabled,
+          }
+        : {
+              customTranslations,
+              projectId,
+              isAuthenticated,
+              corbadoTelemetryDisabled,
+          };
     res.render(view, finalOptions, callback);
 }
